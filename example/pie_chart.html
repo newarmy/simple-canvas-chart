@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN" style="font-size:100px;">
 <head >
-   <title>chart</title>
+   <title>饼型图表</title>
   <meta charset="UTF-8">
   <meta id="vp" name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
   <meta name="apple-touch-fullscreen" content="YES" />
@@ -13,20 +13,10 @@
  <meta name="format-detection" content="telephone=no">	
 </head>
 <body >
-<div style="width:400px,height:400px;border:1px solid #000" id="lineChart"></div>
-
-<div style="width:300px,height:200px;border:1px solid #000" id="columnChart"></div>
 <div style="width:400px,height:400px;border:1px solid #000" id="pieChart"></div>
 
 <script src="../lib/require-min.js"></script>
 <script>
-var data = [
-				{name : '0-6',value : 55.11,color : '#4572a7'},
-				{name : '6-8',value : 29.84,color : '#aa4643'},
-				{name : '8-10',value : 24.88,color : '#89a54e'},
-				{name : '10-12',value : 6.77,color : '#80699b'},
-				{name : '>12',value : 2.02,color : '#3d96ae'}
-			];
 var pieData = [
     {
         value: 300,
@@ -48,26 +38,8 @@ var pieData = [
     }
 ];
 
-    	var lineData = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
-    datasets: [
-        {
-            label: "My First dataset",
-            strokeColor: "#f00",
-            pointColor: "#f00",
-            pointStrokeColor: "#fff",
-            data: [65, 59, 80, 81, 56, 55, 40]
-        },
-        {
-            label: "My Second dataset",
-            strokeColor: "#00f",
-            pointColor: "#00f",
-            pointStrokeColor: "#fff",
-            data: [28, 48, 40, 19, 86, 27, 90]
-        }
-    ]
-};
+   
 </script>
-<script src="../src/main.js"></script>
+<script src="../src/pie-main.js"></script>
 </body>
 </html>
