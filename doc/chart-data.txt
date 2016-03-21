@@ -1,61 +1,53 @@
 1. canvas 图表 （柱形，线性，饼型）
 
    柱形的数据格式：
-      	/*var data = [
+      	  var data = [
+		        //  柱形说明； 数值； 柱形颜色
 				{name : '0-6',value : 55.11,color : '#4572a7'},
 				{name : '6-8',value : 29.84,color : '#aa4643'},
 				{name : '8-10',value : 24.88,color : '#89a54e'},
 				{name : '10-12',value : 6.77,color : '#80699b'},
 				{name : '>12',value : 2.02,color : '#3d96ae'}
-			];*/
+			];
   
   线性的数据格式：
-	var data = {
-    	var data = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
-    datasets: [
-        {
-            label: "My First dataset",
-            fillColor: "rgba(220,220,220,0.2)",
-            strokeColor: "rgba(220,220,220,1)",
-            pointColor: "rgba(220,220,220,1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
-            data: [65, 59, 80, 81, 56, 55, 40]
-        },
-        {
-            label: "My Second dataset",
-            fillColor: "rgba(151,187,205,0.2)",
-            strokeColor: "rgba(151,187,205,1)",
-            pointColor: "rgba(151,187,205,1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(151,187,205,1)",
-            data: [28, 48, 40, 19, 86, 27, 90]
-        }
-    ]
-};
+	var lineData = {
+	    //x轴标示文字
+		labels: ["January", "February", "March", "April", "May", "June", "July"],
+		//数据集
+		datasets: [
+			{
+				label: "My First dataset",//第一项数据说明文字
+				strokeColor: "#f00",//折线颜色
+				pointColor: "#f00",//数据点颜色
+				data: [65, 59, 80, 81, 56, 55, 40]// 线性数据集合
+			},
+			{
+				label: "My Second dataset",
+				strokeColor: "#00f",
+				pointColor: "#00f",
+				pointStrokeColor: "#fff",
+				data: [28, 48, 40, 19, 86, 27, 90]
+			}
+		]
+	};
 
 饼型的数据格式：
    
   var data = [
     {
-        value: 300,
-        color:"#F7464A",
-        highlight: "#FF5A5E",
-        label: "Red"
+        value: 300,// 一项的数值
+        color:"#F7464A",//颜色
+        label: "Red"//说明
     },
     {
         value: 50,
         color: "#46BFBD",
-        highlight: "#5AD3D1",
         label: "Green"
     },
     {
         value: 100,
         color: "#FDB45C",
-        highlight: "#FFC870",
         label: "Yellow"
     }
 ]	
