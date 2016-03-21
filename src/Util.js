@@ -15,6 +15,11 @@ define(function(){
 		},
 		getCtx: function (dom) {
 			return dom.getContext('2d');
+		},
+		copy: function (sObj, dObj) {
+			for(var i in dObj) {
+				sObj[i] = dObj[i];
+			}
 		}
 	};
 });
