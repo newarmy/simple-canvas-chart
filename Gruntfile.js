@@ -7,31 +7,22 @@ module.exports = function (grunt) {
 		requirejs: {
 			compile: {
 				options: {
-					baseUrl: 'app/src',/*相对Gruntfile.js的目录*/
-					paths : {
-						'zepto': '../lib/Zepto.min',
-						'commen': './commen',
-						'anchor' : 'list/anchor'
-					},
-					shim: {
-						'zepto': {
-							exports: '$'
-						}
-					},
-					dir:'app/js',/*相对Gruntfile.js的目录  优化后的目录*/
+					baseUrl: 'src',/*相对Gruntfile.js的目录*/
+					
+					dir:'js',/*相对Gruntfile.js的目录  优化后的目录*/
 					//optimize: 'none',
 					modules: [
 						{
-							name: 'modelCircle',
-							include: ['anchor', 'list/initheight', 'list/showCircle']
+							name: 'column-main',
+							include: ['column']
 						},
 						{
-							name: 'index',
-							include: ['list/tab']
-						}
+							name: 'pie-main',
+							include: ['pie']
+						},
 						{
-							name: 'quickSel',
-							include: ['quickRecommend/changeCircle', 'quickRecommend/manageCircle','quickRecommend/linkTo']
+							name: 'line-main',
+							include: ['line']
 						}
 					],
 					skipDirOptimize: true /*当设置为true时，优化器将会跳过非构建中被约束的JS文件。*/
