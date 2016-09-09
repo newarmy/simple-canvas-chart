@@ -51,3 +51,22 @@
         label: "Yellow"
     }
 ]	
+
+var data1 = [{
+					name : '首付',
+					value : k.handlerData(data.downPay),
+					color : '#d9443c'
+				}, {
+					name : '月付',
+					value : k.handlerData(data.monthlyPay)*(data.period),
+					color : '#dddddd'
+				}, {
+					name : '尾款',
+					value : k.handlerData(data.finalPay),
+					color : '#c9a86a'
+				}, {
+					name : '税费及手续费',
+					value : k.handlerData(data.miscPrice),
+					color : '#494949'
+				}
+			];

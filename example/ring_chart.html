@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN" style="font-size:100px;">
+<head >
+   <title>圆环图表</title>
+  <meta charset="UTF-8">
+  <meta id="vp" name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="apple-touch-fullscreen" content="YES" />
+  <meta name="HandheldFriendly" content="true">
+ <meta name="keywords" content="" />
+ <meta name="description" content="" />
+ <meta name="apple-mobile-web-app-capable" content="yes" />
+ <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+ <meta name="format-detection" content="telephone=no">	
+</head>
+<body >
+<div style="width:400px,height:400px;border:1px solid #000" id="pieChart"></div>
+<a href="#" id="redrawBtn">redraw</a>
+<script src="../lib/require-min.js"></script>
+<script>
+var RingData = [
+    {
+        value: 100,
+        color:"red",
+        label: "Red"
+    },
+    {
+        value: 50,
+        color: "green",
+        label: "Green"
+    },
+    {
+        value: 100,
+        color: "yellow",
+        label: "Yellow"
+    },
+    {
+        value: 100,
+        color: "#00fff0",
+        label: "Yellow"
+    }
+];
+
+   
+</script>
+<script src="../src/ring-main.js"></script>
+</body>
+</html>
