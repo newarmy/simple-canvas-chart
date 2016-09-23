@@ -1,8 +1,15 @@
 // 圆环图 
 
 define(['Util'],function(util){
-	var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-   var cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame ||window.webkitCancelAnimationFrame || window.msCancelAnimationFrame;
+	var flag = null;
+	var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame ||  
+	     function( callback ){
+           flag = window.setTimeout(callback, 1000 / 60);
+         };
+   var cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame ||window.webkitCancelAnimationFrame || window.msCancelAnimationFrame ||
+       function( callback ){
+			window.clearTimeout(flag);
+         };
 
 	// canvas的默认设置
 	var setting = {
@@ -10,6 +17,7 @@ define(['Util'],function(util){
 		height:300,
 		box: null,
 		padding: 5,
+		isPC: false,
 		isAnimate: true
 	};
 	/*
@@ -58,9 +66,13 @@ define(['Util'],function(util){
 		},
 		//创建添加canvas元素，并获取context
 		setCanvas: function () {
-			var k = this, 
-			canvasDom = util.createCanvas(setting);
-			k.ctx = util.getCtx(canvasDom);
+			var k = this;
+			if(setting.isPC) {
+				k.ctx = util.getCtx(setting.box);
+			} else {
+				var canvasDom = util.createCanvas(setting);
+				k.ctx = util.getCtx(canvasDom);
+			}
 		},
 		compute: function () {
 			var k = this;
