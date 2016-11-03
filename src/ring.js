@@ -17,6 +17,7 @@ define(['Util'],function(util){
 		height:300,
 		box: null,
 		padding: 5,
+		lazyTime: 1,
 		isPC: false,
 		isAnimate: true
 	};
@@ -33,6 +34,7 @@ define(['Util'],function(util){
 		this.startAngle = 0;//开始绘画弧度
 		this.stepAngle = Math.PI/30;//动态绘画时的每轮间隔弧度数值
 		this.endAngle = 0;////动态绘画时的结束弧度数值
+		this.lowIE = false;
 		util.copy(setting, opt);
 		this.init();
 	}
@@ -40,9 +42,19 @@ define(['Util'],function(util){
 		constructor: ringChart,
 		init: function() {
 			var k = this;
-			k.setCanvas();
-			k.computeRadius();
-			k.handler();
+			var reg = /msie(\s*)(\d)/;
+			var ua = navigator.userAgent.toLowerCase();
+			var arr = ua.match(reg);
+			if(arr && parseInt(arr[2])<9) {
+				k.lowIE = true;
+				setting.lazyTime = 1000;
+			}
+			setTimeout(function() {
+				k.setCanvas();
+				k.computeRadius();
+				k.handler();
+			}, setting.lazyTime);
+			
 		},
 		//根据新的数据重新绘画
 		redraw: function (data) {
@@ -68,6 +80,10 @@ define(['Util'],function(util){
 		setCanvas: function () {
 			var k = this;
 			if(setting.isPC) {
+				if(k.lowIE) {
+					setting.width = $(setting.box).parents().width();
+					setting.height = $(setting.box).parents().width();
+				}
 				k.ctx = util.getCtx(setting.box);
 			} else {
 				var canvasDom = util.createCanvas(setting);
